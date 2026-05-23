@@ -1,0 +1,11 @@
+Flask==2.1.2
+numpy==1.21.6
+Pillow==9.1.1
+tensorflow==2.15.0
+scikit-learn>=1.0.0
+joblib>=1.1.0
+pandas
+matplotlib
+seaborn
+statsmodels
+
