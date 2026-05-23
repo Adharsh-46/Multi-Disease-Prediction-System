@@ -1,0 +1,119 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<style>
+body{
+    font-family: Cambria;
+    background-color:white;
+    color:black;
+}
+
+.card{
+    background:white;
+    border:1px solid black;
+}
+
+.form-control{
+    border:1px solid black;
+    background:white;
+    color:black;
+}
+
+.btn-custom{
+    background:black;
+    color:white;
+    border:none;
+}
+
+.btn-custom:hover{
+    background:#333;
+}
+</style>
+
+<div class="row">
+
+<div class="col-md-2"></div>
+
+<div class="col-md-8">
+
+<center>
+<h1>Kidney Disease Predictor</h1>
+</center>
+
+<div class="card card-body">
+
+<form action="{{ url_for('predictPage') }}" method="POST">
+
+<!-- ROW 1 -->
+<div class="row">
+<div class="col-md-4"><input class="form-control" type="number" name="age" placeholder="Age" required></div>
+<div class="col-md-4"><input class="form-control" type="number" name="blood_pressure" placeholder="Blood Pressure" required></div>
+<div class="col-md-4"><input class="form-control" type="number" step="any" name="specific_gravity" placeholder="Specific Gravity" required></div>
+</div>
+
+<!-- ROW 2 -->
+<div class="row">
+<div class="col-md-4"><input class="form-control" type="number" name="albumin" min="0" max="5" placeholder="Albumin (0–5)" required></div>
+<div class="col-md-4"><input class="form-control" type="number" name="sugar" min="0" max="5" placeholder="Sugar (0–5)" required></div>
+<div class="col-md-4"><input class="form-control" type="number" name="red_blood_cells" min="0" max="1" placeholder="RBC (0/1)" required></div>
+</div>
+
+<!-- ROW 3 -->
+<div class="row">
+<div class="col-md-4"><input class="form-control" type="number" name="pus_cell" min="0" max="1" placeholder="Pus Cell (0/1)" required></div>
+<div class="col-md-4"><input class="form-control" type="number" name="pus_cell_clumps" min="0" max="1" placeholder="Pus Cell Clumps (0/1)" required></div>
+<div class="col-md-4"><input class="form-control" type="number" name="bacteria" min="0" max="1" placeholder="Bacteria (0/1)" required></div>
+</div>
+
+<!-- ROW 4 -->
+<div class="row">
+<div class="col-md-4"><input class="form-control" type="number" step="any" name="blood_glucose_random" placeholder="Glucose" required></div>
+<div class="col-md-4"><input class="form-control" type="number" step="any" name="blood_urea" placeholder="Blood Urea" required></div>
+<div class="col-md-4"><input class="form-control" type="number" step="any" name="serum_creatinine" placeholder="Creatinine" required></div>
+</div>
+
+<!-- ROW 5 -->
+<div class="row">
+<div class="col-md-4"><input class="form-control" type="number" step="any" name="sodium" placeholder="Sodium" required></div>
+<div class="col-md-4"><input class="form-control" type="number" step="any" name="potassium" placeholder="Potassium" required></div>
+<div class="col-md-4"><input class="form-control" type="number" step="any" name="haemoglobin" placeholder="Haemoglobin" required></div>
+</div>
+
+<!-- ROW 6 -->
+<div class="row">
+<div class="col-md-4"><input class="form-control" type="number" name="packed_cell_volume" placeholder="PCV" required></div>
+<div class="col-md-4"><input class="form-control" type="number" name="white_blood_cell_count" placeholder="WBC Count" required></div>
+<div class="col-md-4"><input class="form-control" type="number" step="any" name="red_blood_cell_count" placeholder="RBC Count" required></div>
+</div>
+
+<!-- ROW 7 -->
+<div class="row">
+<div class="col-md-4"><input class="form-control" type="number" name="hypertension" min="0" max="1" placeholder="Hypertension (0/1)" required></div>
+<div class="col-md-4"><input class="form-control" type="number" name="diabetes_mellitus" min="0" max="1" placeholder="Diabetes (0/1)" required></div>
+<div class="col-md-4"><input class="form-control" type="number" name="coronary_artery_disease" min="0" max="1" placeholder="CAD (0/1)" required></div>
+</div>
+
+<!-- ROW 8 -->
+<div class="row">
+<div class="col-md-4"><input class="form-control" type="number" name="appetite" min="0" max="1" placeholder="Appetite (0/1)" required></div>
+<div class="col-md-4"><input class="form-control" type="number" name="peda_edema" min="0" max="1" placeholder="Pedal Edema (0/1)" required></div>
+<div class="col-md-4"><input class="form-control" type="number" name="aanemia" min="0" max="1" placeholder="Anemia (0/1)" required></div>
+</div>
+
+<br>
+
+<div class="form-group">
+<input type="submit" class="btn btn-custom btn-block" value="Predict">
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+<div class="col-md-2"></div>
+
+</div>
+
+{% endblock %}

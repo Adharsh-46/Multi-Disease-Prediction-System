@@ -1,0 +1,162 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f5f5f5;
+}
+
+/* NAVBAR */
+.navbar{
+    background:black;
+    padding:12px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    background:white;
+    color:red;
+    font-weight:bold;
+    padding:6px 15px;
+    font-size:20px;
+    border-radius:4px;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    margin:0;
+    padding:0;
+}
+
+.nav-links li{
+    margin-left:20px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+}
+
+.nav-links a:hover{
+    color:#00bfff;
+}
+
+/* MAIN */
+.container{
+    width:60%;
+    margin:40px auto;
+    background:white;
+    padding:25px;
+    border-radius:6px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+
+.info-box{
+    border:1px solid #ccc;
+    padding:15px;
+    margin-top:20px;
+    border-radius:5px;
+}
+</style>
+
+
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+<h2>This is a Machine Learning & Deep Learning based Web App.</h2>
+
+<p>
+These models are trained on medical datasets to predict diseases based on user inputs.
+</p>
+
+<h3>Model Accuracies:</h3>
+
+<ul>
+<li>Diabetes Model: 98.25%</li>
+<li>Breast Cancer Model: 98.25%</li>
+<li>Heart Disease Model: 85.25%</li>
+<li>Kidney Disease Model: 99%</li>
+<li>Liver Disease Model: 78%</li>
+</ul>
+
+<h3>Disease Information</h3>
+
+<div class="info-box">
+<h4>Diabetes</h4>
+<ul>
+<li>Frequent urination</li>
+<li>High thirst</li>
+<li>Fatigue</li>
+<li>Blurred vision</li>
+</ul>
+</div>
+
+<div class="info-box">
+<h4>Breast Cancer</h4>
+<ul>
+<li>Breast lump</li>
+<li>Swelling</li>
+<li>Skin irritation</li>
+<li>Nipple discharge</li>
+</ul>
+</div>
+
+<div class="info-box">
+<h4>Heart Disease</h4>
+<ul>
+<li>Chest pain</li>
+<li>Shortness of breath</li>
+<li>Fatigue</li>
+<li>Dizziness</li>
+</ul>
+</div>
+
+<div class="info-box">
+<h4>Kidney Disease</h4>
+<ul>
+<li>Fatigue</li>
+<li>Swelling</li>
+<li>Nausea</li>
+<li>Frequent urination</li>
+</ul>
+</div>
+
+<div class="info-box">
+<h4>Liver Disease</h4>
+<ul>
+<li>Abdominal pain</li>
+<li>Nausea</li>
+<li>Fatigue</li>
+<li>Yellow skin</li>
+</ul>
+</div>
+
+<!-- NEW ADDED -->
+<div class="info-box">
+<h4>Malaria</h4>
+<ul>
+<li>Fever and chills</li>
+<li>Sweating</li>
+<li>Headache</li>
+<li>Nausea</li>
+</ul>
+</div>
+
+<div class="info-box">
+<h4>Pneumonia</h4>
+<ul>
+<li>Cough</li>
+<li>Chest pain</li>
+<li>Breathing difficulty</li>
+<li>Fever</li>
+</ul>
+</div>
+
+</div>
+
+{% endblock %}

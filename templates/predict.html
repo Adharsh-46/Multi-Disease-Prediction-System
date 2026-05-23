@@ -1,0 +1,102 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<style>
+body{
+    font-family: Cambria;
+    background-color:#f5f7fb;
+}
+
+/* RESULT CARD */
+.result-card{
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* POSITIVE */
+.positive{
+    background:#f8d7da;
+    color:#721c24;
+}
+
+/* NEGATIVE */
+.negative{
+    background:#d4edda;
+    color:#155724;
+}
+
+.confidence{
+    font-size:16px;
+    margin-top:10px;
+}
+
+.btn-custom{
+    background:black;
+    color:white;
+    border:none;
+}
+
+.btn-custom:hover{
+    background:#333;
+}
+</style>
+
+<div class="container" style="margin-top:100px;">
+
+<div class="row justify-content-center">
+
+<div class="col-md-6">
+
+{% if pred is not none %}
+
+    {% if pred == 1 %}
+        <div class="result-card positive">
+            ⚠️ POSITIVE <br>
+            Disease Detected
+
+            {% if confidence %}
+            <div class="confidence">
+                Confidence: {{ confidence }}%
+            </div>
+            {% endif %}
+        </div>
+    {% else %}
+        <div class="result-card negative">
+            ✅ NEGATIVE <br>
+            Patient is Healthy
+
+            {% if confidence %}
+            <div class="confidence">
+                Confidence: {{ confidence }}%
+            </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+{% else %}
+
+    <div class="result-card" style="background:#fff3cd; color:#856404;">
+        No prediction available
+    </div>
+
+{% endif %}
+
+<br>
+
+<div class="text-center">
+    <a href="{{ url_for('home') }}" class="btn btn-custom">
+        Back to Home
+    </a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

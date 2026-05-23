@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="og:title" content="Multi Disease Predictor System">
+
+<title>Multi Disease Predictor</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<style>
+
+html, body{
+    height:100%;
+    margin:0;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+    font-family: Cambria;
+    background:white;
+    color:black;
+}
+
+/* NAVBAR */
+.navbar{
+    background:black !important;
+}
+
+.navbar .nav-link{
+    color:white !important;
+}
+
+.navbar .nav-link:hover{
+    color:#cccccc !important;
+}
+
+/* LOGO FIX */
+.logo{
+    background:white;
+    color:red;
+    font-weight:bold;
+    padding:5px 12px;
+    border-radius:4px;
+}
+
+/* MAIN CONTENT SPACING */
+main{
+    margin-top:90px;  /* replaces <br><br> */
+}
+
+/* FOOTER */
+footer{
+    height:75px;
+    padding:10px;
+    margin-top:auto;
+    background:black;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+<a href="{{ url_for('home') }}" style="text-decoration:none;">
+    <div class="logo">MDP-ML</div>
+</a>
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarNav">
+
+<ul class="navbar-nav ml-auto">
+
+<li class="nav-item">
+<a href="{{ url_for('home') }}" class="nav-link">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('diabetesPage') }}">Diabetes</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('cancerPage') }}">Cancer</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('heartPage') }}">Heart</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('kidneyPage') }}">Kidney</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('liverPage') }}">Liver</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('malariaPage') }}">Malaria</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('pneumoniaPage') }}">Pneumonia</a>
+</li>
+
+{% if g.user %}
+<li class="nav-item">
+<span class="navbar-text text-white mr-3">Hi, {{ g.user }}</span>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+</li>
+{% else %}
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('login') }}">Login</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('register') }}">Register</a>
+</li>
+{% endif %}
+
+</ul>
+
+</div>
+
+</nav>
+
+<!-- MAIN -->
+<main>
+
+<div class="container-fluid" style="margin-bottom:20px;">
+{% block content %}
+{% endblock %}
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+<center>
+<p style="color:white;">
+Made with <span style="color:red;">&hearts;</span> by Adharsh & Santosh
+</p>
+</center>
+</footer>
+
+</body>
+</html>

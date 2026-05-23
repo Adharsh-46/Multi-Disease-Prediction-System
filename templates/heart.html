@@ -1,0 +1,134 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<style>
+body{
+    font-family: Cambria;
+    margin:0;
+    background-color:white;
+    color:black;
+}
+
+.card{
+    background:white;
+    border:1px solid black;
+}
+
+.form-control{
+    border:1px solid black;
+    background:white;
+    color:black;
+}
+
+.form-control::placeholder{
+    color:#555;
+}
+
+.btn-custom{
+    background:black;
+    color:white;
+    border:none;
+}
+
+.btn-custom:hover{
+    background:#333;
+}
+</style>
+
+<div class="row" style="margin-bottom:72px;">
+
+    <div class="col-md-2"></div>
+
+    <div class="col-md-8">
+
+        <center>
+            <h1 style="color:black;">Heart Disease Predictor</h1>
+        </center>
+
+        <div class="card card-body">
+
+            <form class="form-horizontal" action="{{ url_for('predictPage') }}" method="POST">
+
+                <!-- ROW 1 -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" name="age" placeholder="Age (in years)" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" name="sex" placeholder="Sex (1 = Male; 0 = Female)" min="0" max="1" required>
+                    </div>
+                </div>
+
+                <!-- ROW 2 -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" name="cp" placeholder="Chest Pain Type (0-3)" min="0" max="3" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" step="any" name="trestbps" placeholder="Resting Blood Pressure (mm Hg)" required>
+                    </div>
+                </div>
+
+                <!-- ROW 3 -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" step="any" name="chol" placeholder="Serum Cholesterol (mg/dl)" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" name="fbs" placeholder="Fasting Blood Sugar >120 (1/0)" min="0" max="1" required>
+                    </div>
+                </div>
+
+                <!-- ROW 4 -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" name="restecg" placeholder="Rest ECG (0-2)" min="0" max="2" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" name="thalach" placeholder="Max Heart Rate Achieved" required>
+                    </div>
+                </div>
+
+                <!-- ROW 5 -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" name="exang" placeholder="Exercise Angina (1 = Yes; 0 = No)" min="0" max="1" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" step="any" name="oldpeak" placeholder="ST Depression" required>
+                    </div>
+                </div>
+
+                <!-- ROW 6 -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" name="slope" placeholder="Slope (0-2)" min="0" max="2" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" name="ca" placeholder="Major Vessels (0–3)" min="0" max="3" required>
+                    </div>
+                </div>
+
+                <!-- ROW 7 -->
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" name="thal" placeholder="Thal (1-3)" min="1" max="3" required>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-custom btn-block" value="Predict">
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

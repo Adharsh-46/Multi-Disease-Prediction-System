@@ -1,0 +1,88 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<style>
+body{
+    font-family: Cambria;
+    background-color:#f5f7fb;
+}
+
+.card{
+    border:1px solid #ddd;
+    background:white;
+    padding:30px;
+    border-radius:8px;
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.btn-custom{
+    background:black;
+    color:white;
+    border:none;
+}
+
+.btn-custom:hover{
+    background:#333;
+}
+
+.confidence{
+    font-size:16px;
+    margin-top:10px;
+}
+</style>
+
+<div class="container" style="margin-top:100px;">
+
+<div class="row justify-content-center">
+
+<div class="col-md-6">
+
+{% if pred is not none %}
+
+    {% if pred == 1 %}
+        <div class="card alert alert-danger">
+            ⚠️ POSITIVE <br>
+            Pneumonia Detected
+
+            {% if confidence %}
+            <div class="confidence">
+                Confidence: {{ confidence }}%
+            </div>
+            {% endif %}
+        </div>
+    {% else %}
+        <div class="card alert alert-success">
+            ✅ NEGATIVE <br>
+            No Pneumonia Detected
+
+            {% if confidence %}
+            <div class="confidence">
+                Confidence: {{ confidence }}%
+            </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+{% else %}
+
+    <div class="card alert alert-warning">
+        No prediction available
+    </div>
+
+{% endif %}
+
+<br>
+
+<a href="{{ url_for('pneumoniaPage') }}" class="btn btn-custom btn-block">
+Try Another Image
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

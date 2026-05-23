@@ -1,0 +1,168 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<style>
+body{
+    font-family: Cambria;
+    margin:0;
+    background-color:white;
+    color:black;
+}
+
+.card{
+    background:white;
+    border:1px solid black;
+}
+
+.form-control{
+    border:1px solid black;
+    background:white;
+    color:black;
+}
+
+.form-control::placeholder{
+    color:#555;
+}
+
+.btn-custom{
+    background:black;
+    color:white;
+    border:none;
+}
+
+.btn-custom:hover{
+    background:#333;
+}
+</style>
+
+<div class="row">
+
+    <div class="col-md-2"></div>
+
+    <div class="col-md-8">
+
+        <center>
+            <h1 style="color:black;">Breast Cancer Predictor</h1>
+        </center>
+
+        <div class="card card-body">
+
+            <form class="form-horizontal" action="{{ url_for('predictPage') }}" method="POST">
+
+                <!-- ROW 1 -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="texture_mean" placeholder="Texture Mean" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="smoothness_mean" placeholder="Smoothness Mean" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="compactness_mean" placeholder="Compactness Mean" required>
+                    </div>
+                </div>
+
+                <!-- ROW 2 -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="concave_points_mean" placeholder="Concave Points Mean" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="symmetry_mean" placeholder="Symmetry Mean" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="fractal_dimension_mean" placeholder="Fractal Dimension Mean" required>
+                    </div>
+                </div>
+
+                <!-- ROW 3 -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="texture_se" placeholder="Texture Standard Error" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="area_se" placeholder="Area Standard Error" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="smoothness_se" placeholder="Smoothness Standard Error" required>
+                    </div>
+                </div>
+
+                <!-- ROW 4 -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="compactness_se" placeholder="Compactness Standard Error" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="concavity_se" placeholder="Concavity Standard Error" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="concave_points_se" placeholder="Concave Points Standard Error" required>
+                    </div>
+                </div>
+
+                <!-- ROW 5 -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="symmetry_se" placeholder="Symmetry Standard Error" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="fractal_dimension_se" placeholder="Fractal Dimension Standard Error" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="texture_worst" placeholder="Texture Worst" required>
+                    </div>
+                </div>
+
+                <!-- ROW 6 -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="area_worst" placeholder="Area Worst" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="smoothness_worst" placeholder="Smoothness Worst" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="compactness_worst" placeholder="Compactness Worst" required>
+                    </div>
+                </div>
+
+                <!-- ROW 7 -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="concavity_worst" placeholder="Concavity Worst" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="concave_points_worst" placeholder="Concave Points Worst" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="symmetry_worst" placeholder="Symmetry Worst" required>
+                    </div>
+                </div>
+
+                <!-- ROW 8 -->
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" step="any" name="fractal_dimension_worst" placeholder="Fractal Dimension Worst" required>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-custom btn-block" value="Predict">
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-2"></div>
+
+</div>
+
+{% endblock %}

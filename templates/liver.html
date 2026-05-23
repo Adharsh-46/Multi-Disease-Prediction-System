@@ -1,0 +1,127 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background-color:white;
+    color:black;
+}
+
+.card{
+    background:white;
+    border:1px solid black;
+    padding:20px;
+}
+
+.form-control{
+    border:1px solid black;
+    background:white;
+    color:black;
+}
+
+.form-control::placeholder{
+    color:#555;
+}
+
+.btn-custom{
+    background:black;
+    color:white;
+    border:none;
+}
+
+.btn-custom:hover{
+    background:#333;
+}
+</style>
+
+<div class="row" style="margin-bottom:100px;">
+
+    <div class="col-md-2"></div>
+
+    <div class="col-md-8">
+
+        <center>
+            <h1>Liver Disease Predictor</h1>
+        </center>
+
+        <div class="card">
+
+            <form action="{{ url_for('predictPage') }}" method="POST">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" step="any" name="Age" placeholder="Age (years)" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" step="any" name="Gender" placeholder="Gender (1: Male, 0: Female)" required>
+                    </div>
+
+                </div><br>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" step="any" name="Total_Bilirubin" placeholder="Total Bilirubin (mg/dL)" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" step="any" name="Direct_Bilirubin" placeholder="Direct Bilirubin (mg/dL)" required>
+                    </div>
+
+                </div><br>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" step="any" name="Alkaline_Phosphotase" placeholder="Alkaline Phosphatase (IU/L)" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" step="any" name="Alanine_Aminotransferase" placeholder="Alanine Aminotransferase (IU/L)" required>
+                    </div>
+
+                </div><br>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" step="any" name="Aspartate_Aminotransferase" placeholder="Aspartate Aminotransferase (IU/L)" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" step="any" name="Total_Proteins" placeholder="Total Proteins (g/dL)" required>
+                    </div>
+
+                </div><br>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" step="any" name="Albumin" placeholder="Albumin (g/dL)" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <input class="form-control" type="number" step="any" name="Albumin_and_Globulin_Ratio" placeholder="A/G Ratio" required>
+                    </div>
+
+                </div><br>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-custom btn-block" value="Predict">
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-2"></div>
+
+</div>
+
+{% endblock %}
