@@ -56,5 +56,3 @@ The application is developed using Flask, which connects the trained machine lea
 4. Click the **Predict** button.
 5. The system will process the input using the respective trained ML model and display the predicted outcome.
 
-## 📜 License
-This project is licensed under the MIT License.
